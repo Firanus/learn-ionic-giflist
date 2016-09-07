@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar secondary>
+
+    <ion-title>
+      <ion-searchbar primary placeholder="enter subreddit name..." [(ngModel)]="subredditValue" [formControl]="subredditControl" hideCancelButton></ion-searchbar>
+    </ion-title>
+
+    <ion-buttons end>
+      <button (click)="openSettings()"><ion-icon name="settings"></ion-icon></button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="home">
+
+  <ion-list>
+
+    <ion-item no-lines>
+      GIF GOES HERE
+      <ion-list-header>
+        TITLE GOES HERE
+      </ion-list-header>
+    </ion-item>
+
+    <ion-item *ngIf="loading" no-lines style="text:align: center;">
+      <img src="images/loader.gif" style="width: 50px" />
+    </ion-item>
+
+  </ion-list>
+
+  <button light (click)="loadMore()">Load More...</button>
+
+</ion-content>
