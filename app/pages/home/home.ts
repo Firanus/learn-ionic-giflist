@@ -144,8 +144,23 @@ export class HomePage {
   }
 
   loadSettings(): void {
-    console.log("TODO: Implement loadSettings()");
-    this.fetchData();
+
+    this.dataService.getData().then((settings) => {
+
+      if(typeof(settings) != "undefined"){
+
+        this.settings = JSON.parse(settings);
+
+        if(this.settings.length != 0){
+          this.sort = this.settings.sort;
+          this.perPage = this.settings.perPage;
+          this.subreddit = this.settings.subreddit;
+        }
+      }
+
+      this.changeSubreddit();
+
+    })
   }
 
   showComments(post): void {
@@ -153,7 +168,26 @@ export class HomePage {
   }
 
   openSettings(): void {
-    console.log("TODO: Implement openSettings()");
+
+    let settingsModal = this.modalCtrl.create(SettingsPage, {
+      perPage: this.perPage,
+      sort: this.sort,
+      subreddit: this.subreddit
+    });
+
+    settingsModal.onDidDismiss(settings => {
+
+      if(settings){
+        this.perPage = settings.perPage;
+        this.sort = settings.sort;
+        this.subreddit = settings.subreddit;
+
+        this.dataService.save(settings);
+        this.changeSubreddit();
+      }
+    });
+
+    settingsModal.present();
   }
 
   playVideo(e, post): void {

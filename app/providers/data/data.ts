@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+import { Storage, SqlStorage } from 'ionic-angular';
 
 /*
   Generated class for the Data provider.
@@ -11,7 +10,19 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class Data {
 
-  constructor(private http: Http) {}
+  storage: Storage;
+
+  constructor() {
+    this.storage = new Storage(SqlStorage, {name:'giflist-settings'});
+  }
+
+  getData(): Promise<any> {
+    return this.storage.get("settings");
+  }
+
+  save(data): void {
+    let newData = JSON.stringify(data);
+    this.storage.set("settings", newData);
+  }
 
 }
-
