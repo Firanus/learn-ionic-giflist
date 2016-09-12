@@ -1,3 +1,33 @@
-.home-page {
-  
+.gif-title{
+  background-color: #fff;
+}
+
+ion-label{
+  margin: 0px;
+}
+
+ion-list{
+  margin: 0px !important;
+}
+
+ion-content img{
+  width: 100%;
+  height: auto;
+}
+
+ion-item-content, .item-inner, .item{
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: center;
+}
+
+video{
+  max-width: 100%;
+  height: auto;
+  border-color: #000;
+}
+
+.load-more-button{
+  width: 100%;
+  margin: 0px;
 }

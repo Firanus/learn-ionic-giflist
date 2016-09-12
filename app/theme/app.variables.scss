@@ -26,10 +26,15 @@
 // are different per mode.
 
 $colors: (
-  primary:    #387ef5,
-  secondary:  #32db64,
+  primary:    #ecf0f1,
+  secondary:  #e74c3c,
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
   favorite:   #69BB7B
 );
+
+$searchbar-ios-background-color: #e74c3c;
+$searchbar-ios-input-background-color: #c94234;
+
+$button-ios-border-radius: 0px;

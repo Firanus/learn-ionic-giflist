@@ -19,7 +19,7 @@
       <ion-item (click)="playVideo($event, post)" no-lines style="background-color: #000;">
         <img src="images/loader.gif" *ngIf="post.showLoader" style="width:25px; position: absolute; left: 85%;" [style.top]="post.loaderOffset">
         <video loop [src]="post.data.url" [poster]="post.data.snapshot"></video>
-        <ion-list-header (click)="showComments(post)" style="text-align:left;">
+        <ion-list-header (click)="showComments(post)" class="gif-title" style="text-align:left;">
           {{post.data.title}}
         </ion-list-header>
       </ion-item>
@@ -31,6 +31,6 @@
 
   </ion-list>
 
-  <button light (click)="loadMore()"><span style="width:100%;">Load More...</span></button>
+  <button light (click)="loadMore()" class="load-more-button"><span style="width:100%;">Load More...</span></button>
 
 </ion-content>
